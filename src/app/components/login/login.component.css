@@ -1,0 +1,10 @@
+.login-form{
+    margin: auto auto;
+    width: 30%;
+    background-color: white;
+    border-radius: 25px;
+}
+
+.login-component{
+    padding-top: 5vh;
+}

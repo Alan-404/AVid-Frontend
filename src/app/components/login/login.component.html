@@ -1,0 +1,17 @@
+<div class="login-component">
+    <div class="login-form p-3">
+        <h1 class="text-center">AVid</h1>
+        <hr />
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input name="email" (change)="getInfo($event)" matInput placeholder="Enter email...">
+        </mat-form-field>
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input name="password" (change)="getInfo($event)" matInput placeholder="Enter password..." type="password">
+        </mat-form-field>
+        <div class="text-center">
+            <button (click)="submitLoginAccount()" mat-flat-button color="accent" class="w-50">Login Account</button>
+        </div>
+    </div>
+</div>
