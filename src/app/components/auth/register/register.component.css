@@ -1,0 +1,18 @@
+.register-component{
+    padding-top: 3vh;
+}
+
+.register-form{
+    margin: auto auto;
+    background-color: white;
+    width: 40%;
+    border-radius: 25px;
+}
+
+.myDatePicker{
+    height: 70%;
+    border: none;
+    background-color: rgb(212, 209, 209);
+    outline: none;
+    border-radius: 2px;
+}

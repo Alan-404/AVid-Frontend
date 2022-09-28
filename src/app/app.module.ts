@@ -7,15 +7,20 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { AuthComponent } from './views/auth/auth.component';
 import { HomeComponent } from './views/home/home.component';
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './components/auth/login/login.component';
+import { RegisterComponent } from './components/auth/register/register.component';
 
 
 
 
 import {MatInputModule} from '@angular/material/input';
 import {MatButtonModule} from '@angular/material/button';
-
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {MatSelectModule} from '@angular/material/select';
+import { MainComponent } from './components/home/main/main.component';
+import { HeaderComponent } from './templates/header/header.component';
 
 const appRoutes: Routes = [
   {path: 'auth', component: AuthComponent, children: [
@@ -23,7 +28,10 @@ const appRoutes: Routes = [
     {path: 'register', component: RegisterComponent},
     {path: '', pathMatch: 'full', redirectTo: 'login'}
   ]},
-  {path: '', pathMatch: 'full', redirectTo: 'auth'}
+  {path: 'home', component: HomeComponent, children: [
+    {path: '', pathMatch:'full', component: MainComponent}
+  ]},
+  {path: '', pathMatch: 'full', redirectTo: 'home'}
 ]
 
 @NgModule({
@@ -32,7 +40,8 @@ const appRoutes: Routes = [
     AuthComponent,
     HomeComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
@@ -41,9 +50,16 @@ const appRoutes: Routes = [
     HttpClientModule,
     RouterModule.forRoot(appRoutes),
     MatInputModule,
-    MatButtonModule
+    MatButtonModule,
+    MatDatepickerModule,
+    MatFormFieldModule,
+    MatNativeDateModule,
+    MatOptionModule,
+    MatSelectModule
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

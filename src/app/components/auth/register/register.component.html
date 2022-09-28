@@ -1,0 +1,40 @@
+<div class="register-component">
+    <div class="register-form p-3">
+        <h1 class="text-center">Register Account</h1>
+        <hr />
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>First Name</mat-label>
+            <input name="firstName" (change)="getInfo($event)" matInput placeholder="Enter first name...">
+        </mat-form-field>
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Last Name</mat-label>
+            <input name="lastName" (change)="getInfo($event)" matInput placeholder="Enter last name...">
+        </mat-form-field>
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Email</mat-label>
+            <input name="email" (change)="getInfo($event)" matInput placeholder="Enter email...">
+        </mat-form-field>
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Phone</mat-label>
+            <input name="phone" (change)="getInfo($event)" matInput placeholder="Enter phone number...">
+        </mat-form-field>
+        <div class="mb-2 d-flex">
+            <div class="w-50">
+                <input (change)="getInfo($event)" name="bdate" class="w-100 myDatePicker p-2" type="date"/>
+            </div>
+            
+            <mat-form-field class="w-50" appearance="fill">
+                <mat-label>Gender</mat-label>
+                <mat-select name="gender" (selectionChange)="getInfoSelect($event.value)">
+                  <mat-option *ngFor="let gender of this.genders" value="{{gender}}">{{gender}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <mat-form-field class="example-full-width w-100" appearance="fill">
+            <mat-label>Password</mat-label>
+            <input name="password" (change)="getInfo($event)" matInput placeholder="Enter password..." type="password">
+        </mat-form-field>
+        <input (change)="uploadFile($event)" type="file"/>
+        <button (click)="submitRegisterUser()" mat-flat-button color="primary">Submit</button>
+    </div>
+</div>

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginDTO } from 'src/app/models/account';
 import { AccountService } from 'src/app/services/account.service';
-
+import { Router } from '@angular/router';
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -12,7 +12,8 @@ export class LoginComponent implements OnInit {
   loginData: LoginDTO = {email: '', password: ''}
 
   constructor(
-    private accountService: AccountService
+    private accountService: AccountService,
+    private router: Router
   ) { }
 
   ngOnInit(): void {
@@ -30,8 +31,10 @@ export class LoginComponent implements OnInit {
 
   submitLoginAccount(){
     this.accountService.loginAccount(this.loginData).subscribe(response => {
+      console.log(response)
       if (response.success){
         localStorage.setItem("AVid", response.accessToken)
+        this.router.navigate(['/home'])
       }
     })
   }
